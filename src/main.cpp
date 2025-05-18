@@ -6,7 +6,7 @@
 
 #include "wifi-credentials.hpp"
 
-AsyncWebServer server(80);
+AsyncWebServer server(38787);
 AsyncWebSocket ws("/ws");
 
 void onWsEvent(AsyncWebSocket *server, AsyncWebSocketClient *client,
