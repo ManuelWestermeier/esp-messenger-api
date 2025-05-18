@@ -52,13 +52,23 @@ void setup()
   Serial.println(" Connected!");
   Serial.println(WiFi.localIP());
 
+  // WebSocket Event Handler
   ws.onEvent(onWsEvent);
   server.addHandler(&ws);
+
+  // Route für die Hello World Webseite
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
+            { request->send(200, "text/html", "<!DOCTYPE html><html><head><title>Hello</title></head><body><h1>Hello World!</h1><p>This is a WebSocket test server.</p></body></html>"); });
+
+  server.on("/favicon.ico", HTTP_GET, [](AsyncWebServerRequest *request)
+            {
+              request->send(204); // No Content
+            });
 
   server.begin();
 }
 
 void loop()
 {
-  // Nothing needed here due to async handling
+  // Async Webserver läuft im Hintergrund
 }
