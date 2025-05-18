@@ -4,7 +4,7 @@
 #include <AsyncTCP.h>
 #include <ESPAsyncWebServer.h>
 
-#include "credentials.hpp"
+#include "wifi-credentials.hpp"
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
